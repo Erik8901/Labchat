@@ -1,0 +1,31 @@
+body {
+    background-color: paleturquoise;
+    
+}
+
+#box1 {
+    width: 200px;
+    height: 60px;
+    background-color: green;
+}
+
+#btnChatRoom {
+    margin-top: 30px;
+}
+
+#theChat {
+    display: none;
+}
+#chatBox {
+    margin-top: 30px;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border: 3px solid green;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+#sendMsg {
+    margin-top: 30px;
+}
