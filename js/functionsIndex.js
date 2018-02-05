@@ -18,6 +18,11 @@
         let btnSend = document.getElementById("sendMsg");
         let mes = document.getElementById("msg");
         let chatDiv = document.getElementById("chatBox");   
+        let msgSave = [];
+        let msgList = document.createElement("ul");
+        let med = document.createElement("li");
+        
+
             
         btnMakeUser.addEventListener("click", function(saveUser) {
                 
@@ -26,25 +31,48 @@
                 theTime.innerHTML = " login time: " + h+":"+m;
                 userList.push(getUserName.value,h+":"+m);
                 console.log(userList);
+            
+            
                 
-            });
             
         
-       
-        btnRoom.addEventListener("click", function(EnterTheChat) {
-            
-            chatten.style.display = "block";
-            
         });
             
             
+            btnRoom.addEventListener("click", function(EnterTheChat) {
+            
+                    chatten.style.display = "block";
+            
+            });
+            
+            
        btnSend.addEventListener("click", function(SendToChat) {
+
+           let x = getUserName.value;
+           let t = h +":" + m
+           let y = mes.value;
+           let b = x + "[" + t + "]" + ":" + y
            
-           chatDiv.innerHTML =  mes.value;
-           
-       }) 
+           chatDiv.innerHTML = getUserName.value +   mes.value 
+          
+           msgSave.push(b);
+           //console.log(msgSave);
+           msgSave.toString(); 
+           chatDiv.innerHTML = msgSave;
+               
+           /* med.appendChild(document.createTextNode(msgSave));
+            msgList.appendChild(med);
+            chatDiv.innerHTML = med;
+            */
+       });
+        
+        
+        
+       
         
         
         
         };
+            
+        
         
