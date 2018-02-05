@@ -17,7 +17,8 @@
         let chatten = document.getElementById("theChat");
         let btnSend = document.getElementById("sendMsg");
         let mes = document.getElementById("msg");
-        let chatDiv = document.getElementById("chatBox");   
+        let chatDiv = document.getElementById("chatBox");
+		const db = firebase.database();
             
         btnMakeUser.addEventListener("click", function(saveUser) {
                 
@@ -34,17 +35,27 @@
         btnRoom.addEventListener("click", function(EnterTheChat) {
             
             chatten.style.display = "block";
+			
             
         });
             
             
        btnSend.addEventListener("click", function(SendToChat) {
-           
-           chatDiv.innerHTML =  mes.value;
-           
-       }) 
-        
-        
+		   //get currentTime when message sends
+		   //let currentTime = new Date();
+		   //TODO: add 0 to minutes and hours under 10.
+           db.ref("messages/").push({"Time": h + ":" + m, "User": getUserName.value, "Message": mes.value});
+           //chatDiv.innerHTML =  mes.value;    
+       });
+		//take snapshot, and print to console
+        db.ref("/").on("value", function(snapshot) {
+        console.log("On value: hämtar hela databasen.");
+        let data = snapshot.val();
+        console.log(data);
+		});
+			
+		//realtime, when database changes it posts a new snapshot
+		db.ref().child("messages").on("value", snap => chatDiv.innerHTML = JSON.stringify(snap.val()));
         
         };
         
