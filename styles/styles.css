@@ -1,6 +1,5 @@
 body {
-    background-color: paleturquoise;
-    
+    background-color: paleturquoise;   
 }
 
 #box1 {
@@ -8,8 +7,6 @@ body {
     height: 60px;
     background-color: green;
 }
-
-
 
 #btnChatRoom {
     margin-top: 30px;
