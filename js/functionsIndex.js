@@ -34,7 +34,7 @@ function nameFunction() {
    btnSend.addEventListener("click", function(SendToChat) {
 	   //get currentTime when message sends
 	   let currentTime = new Date();
-<<<<<<< HEAD
+
 	   //TODO: add 0 to minutes and hours under 10.
 	   db.ref("messages/").push({"Time": currentTime.getHours() + ":" + currentTime.getMinutes(), "User": getUserName.value, "Message": mes.value});  
        //console.log(db.ref);
@@ -44,9 +44,10 @@ function nameFunction() {
 	db.ref().child("messages").on("value", snap => { 
         //chatDiv.innerHTML = JSON.stringify(snap.val())
         let obj = snap.val();
-        let list = document.getElementById("msgList");
-        //let list = document.createElement("ul");
-        //let li = document.createElement("li");
+        //let list = document.getElementById("msgList");
+        let list = document.createElement("ul");
+        let li = document.createElement("li");
+        
         for( let x in obj ) {
            // console.log('key: ' + x);         // 'key: a'
             //console.log('value: ' + obj[x]);  // 'value: exempel'
@@ -59,13 +60,15 @@ function nameFunction() {
             let u = obj[x].User;
             let t = obj[x].Time;
             let m = obj[x].Message;
+            
             //chatDiv.innerHTML = u +":" + t + m // Funkar att skriva ut div'n
            
            
             let li = document.createElement("li");
-            li.innerHTML = (u +":" + t + ":" + m);
-            list.innerHTML += li;
-            console.log(li);
+            
+            li.innerHTML = (u +"[" + t + "]" + ":" + m);
+            chatten.appendChild(li);
+            //console.log(li);
             
             
         
@@ -74,7 +77,7 @@ function nameFunction() {
         
         
         //console.log(list);
-     chatDiv.scrollTop = chatDiv.scrollHeight;   
+     chatten.scrollTop = chatten.scrollHeight;   
 });
     
    
@@ -82,7 +85,7 @@ function nameFunction() {
     
    
    
-=======
+
        let addZero = num => {
          if (num < 10) {
              return 0 + String(num);
@@ -93,11 +96,11 @@ function nameFunction() {
 	   
        //send message to database
 	   db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName.value, "Message": mes.value});  
-   });
+   
 
 	//realtime, when database changes it posts a new snapshot
 	db.ref().child("messages").on("value", snap => chatDiv.innerHTML = JSON.stringify(snap.val()));
->>>>>>> e4392c5511e623a9889c8701e256866a27d0d764
+
 };
 
 
