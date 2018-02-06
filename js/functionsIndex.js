@@ -58,22 +58,26 @@
        btnSend.addEventListener("click", function(SendToChat) {
 
 
-           let x = getUserName.value;
-           let t = h +":" + m
-           let y = mes.value;
-           let b = x + "[" + t + "]" + ":" + y
-           
-           chatDiv.innerHTML = getUserName.value +   mes.value 
-          
-           msgSave.push(b);
-           //console.log(msgSave);
-           msgSave.toString(); 
-           chatDiv.innerHTML = msgSave;
+//           let x = getUserName.value;
+//           let t = h +":" + m
+//           let y = mes.value;
+//           let b = x + "[" + t + "]" + ":" + y
+//           
+//           chatDiv.innerHTML = getUserName.value +   mes.value 
+//          
+//           msgSave.push(b);
+//           //console.log(msgSave);
+//           msgSave.toString(); 
+//           chatDiv.innerHTML = msgSave;
                
            /* med.appendChild(document.createTextNode(msgSave));
             msgList.appendChild(med);
             chatDiv.innerHTML = med;
             */
+		   //get currentTime when message sends
+		   let currentTime = new Date();
+		   //TODO: add 0 to minutes and hours under 10.
+           db.ref("messages/").push({"Time": currentTime.getHours() + ":" + currentTime.getMinutes(), "User": getUserName.value, "Message": mes.value});  
        });
         
         
@@ -82,11 +86,7 @@
         
         
 
-		   //get currentTime when message sends
-		   //let currentTime = new Date();
-		   //TODO: add 0 to minutes and hours under 10.
-           db.ref("messages/").push({"Time": h + ":" + m, "User": getUserName.value, "Message": mes.value});
-           //chatDiv.innerHTML =  mes.value;    
+		   
        
 		//take snapshot, and print to console
         db.ref("/").on("value", function(snapshot) {
