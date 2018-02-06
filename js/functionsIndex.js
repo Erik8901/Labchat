@@ -16,6 +16,8 @@ function nameFunction() {
 	let mes = document.getElementById("msg");
 	let chatDiv = document.getElementById("chatBox");   
 	const db = firebase.database();
+   // let list = document.getElementById("msgList");
+   
 
 	btnMakeUser.addEventListener("click", function(saveUser) {
 		theUsers.style.color = "white";
@@ -34,11 +36,51 @@ function nameFunction() {
 	   let currentTime = new Date();
 	   //TODO: add 0 to minutes and hours under 10.
 	   db.ref("messages/").push({"Time": currentTime.getHours() + ":" + currentTime.getMinutes(), "User": getUserName.value, "Message": mes.value});  
+       //console.log(db.ref);
    });
 
 	//realtime, when database changes it posts a new snapshot
-	db.ref().child("messages").on("value", snap => chatDiv.innerHTML = JSON.stringify(snap.val()));
-
+	db.ref().child("messages").on("value", snap => { 
+        //chatDiv.innerHTML = JSON.stringify(snap.val())
+        let obj = snap.val();
+        let list = document.getElementById("msgList");
+        //let list = document.createElement("ul");
+        //let li = document.createElement("li");
+        for( let x in obj ) {
+           // console.log('key: ' + x);         // 'key: a'
+            //console.log('value: ' + obj[x]);  // 'value: exempel'
+            //console.log('key: ' + x);         // 'key: a'
+           // console.log('time: ' + obj[x].Time);  // 'value: exempel'
+            //console.log('user: ' + obj[x].User);
+            //console.log('message: ' + obj[x].Message);
+        
+            
+            let u = obj[x].User;
+            let t = obj[x].Time;
+            let m = obj[x].Message;
+            //chatDiv.innerHTML = u +":" + t + m // Funkar att skriva ut div'n
+           
+           
+            let li = document.createElement("li");
+            li.innerHTML = (u +":" + t + ":" + m);
+            list.innerHTML += li;
+            console.log(li);
+            
+            
+        
+        
+        }
+        
+        
+        //console.log(list);
+     chatDiv.scrollTop = chatDiv.scrollHeight;   
+});
+    
+   
+    
+    
+   
+   
 };
 
 
