@@ -4,11 +4,10 @@ function nameFunction() {
 	let theUsers = document.getElementById("text1");
 	let theTime = document.getElementById("text2");
 	let userList = [];
-	let getUserName = document.getElementById("userName");
+	let getUserName = displayName;
 	let datum = new Date();
 	let h = datum.getHours();
-	let m = datum.getMinutes();
-	let btnMakeUser = document.getElementById("newUser");   
+	let m = datum.getMinutes();   
 	let div1 = document.getElementById("boxUserName");
 	let btnRoom = document.getElementById("btnChatRoom")
 	let chatten = document.getElementById("theChat");
@@ -17,15 +16,6 @@ function nameFunction() {
 	let chatDiv = document.getElementById("chatBox");   
 	const db = firebase.database();
    // let list = document.getElementById("msgList");
-   
-
-	btnMakeUser.addEventListener("click", function(saveUser) {
-		theUsers.style.color = "white";
-		theUsers.innerHTML = "Your username is: " + getUserName.value;
-		theTime.innerHTML = " login time: " + h+":"+m;
-		userList.push(getUserName.value,h+":"+m);
-		console.log(userList);
-	});
 
 	btnRoom.addEventListener("click", function(EnterTheChat) {
 			chatDiv.style.display = "block";
@@ -46,7 +36,7 @@ function nameFunction() {
         let currentMinute = addZero(currentTime.getMinutes());
 
 	   //TODO: add 0 to minutes and hours under 10.
-	   db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName.value, "Message": mes.value});  
+	   db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName, "Message": mes.value});  
        //console.log(db.ref);
    });
 
