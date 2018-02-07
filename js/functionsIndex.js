@@ -1,10 +1,14 @@
  window.addEventListener("load", nameFunction )
+var getUserName
+function updateDisplayName(setName) {
+        getUserName = setName;
+        console.log("nu uppdateas displayName")
+    } 
 
 function nameFunction() { 
 	let theUsers = document.getElementById("text1");
 	let theTime = document.getElementById("text2");
 	let userList = [];
-	let getUserName = displayName;
 	let datum = new Date();
 	let h = datum.getHours();
 	let m = datum.getMinutes();   
@@ -34,7 +38,6 @@ function nameFunction() {
         };
         let currentHour = addZero(currentTime.getHours());
         let currentMinute = addZero(currentTime.getMinutes());
-       console.log(getUserName);
 	   //TODO: add 0 to minutes and hours under 10.
 	   db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName, "Message": mes.value});  
        //console.log(db.ref);
@@ -81,8 +84,9 @@ function nameFunction() {
             //list.innerHTML += li;
             //console.log(li); 
         });        
-
-            //console.log(list);
+    
+    
+    //console.log(list);
            
 };
 

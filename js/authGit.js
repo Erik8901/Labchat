@@ -1,6 +1,6 @@
 window.addEventListener("load", nameFunction)
 
-var displayName;
+
 function nameFunction() {
         
     let provider = new firebase.auth.GithubAuthProvider();   
@@ -8,6 +8,7 @@ function nameFunction() {
     let logOut = document.getElementById("logOut")
     let signedInUser = document.getElementById("signedInUser");
     let photoURL;
+    let displayName;
     
     login.addEventListener("click", function(popUp) {         
         firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -33,6 +34,7 @@ function nameFunction() {
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user != null) {
+            updateDisplayName(displayName);
             logOut.disabled = false;
             login.disabled = true; 
             let h2 = document.createElement("h2");
