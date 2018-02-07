@@ -8,13 +8,20 @@ function auth() {
         btnGit.addEventListener("click", function(popUp) {
             
             
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+				var user = result.user;
+				console.log('Popup result: logged in as ', user.displayName);
+				fetchFromDatabase();
+			}).catch(function(error) {
+				console.log('Popup result, error: ' + error.message);
+			});
+		});
             
             
             
             
             
-            
-        })
+        
     
 
 
