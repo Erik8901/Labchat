@@ -32,6 +32,7 @@ function nameFunction() {
 	});
 
    btnSend.addEventListener("click", function(SendToChat) {
+
 	   //get currentTime when message sends
 	   let currentTime = new Date();
 
@@ -39,6 +40,19 @@ function nameFunction() {
 	   db.ref("messages/").push({"Time": currentTime.getHours() + ":" + currentTime.getMinutes(), "User": getUserName.value, "Message": mes.value});  
        //console.log(db.ref);
    });
+
+        let addZero = num => {
+            if (num < 10) {
+                return 0 + String(num);
+            }  
+        };
+        let currentHour = addZero(currentTime.getHours());
+        let currentMinute = addZero(currentTime.getMinutes());
+
+        //send message to database
+        db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName.value, "Message": mes.value});  
+        });
+
 
 	//realtime, when database changes it posts a new snapshot
 	db.ref().child("messages").on("value", snap => { 
@@ -56,15 +70,14 @@ function nameFunction() {
             //console.log('user: ' + obj[x].User);
             //console.log('message: ' + obj[x].Message);
         
-            
             let u = obj[x].User;
             let t = obj[x].Time;
             let m = obj[x].Message;
             
             //chatDiv.innerHTML = u +":" + t + m // Funkar att skriva ut div'n
            
-           
             let li = document.createElement("li");
+
             
             li.innerHTML = (u +"[" + t + "]" + ":" + m);
             chatten.appendChild(li);
@@ -76,9 +89,16 @@ function nameFunction() {
         }
         
         
+
+            li.innerHTML = (u +":" + t + ":" + m);
+            list.innerHTML += li;
+            console.log(li); 
+        }        
+
         //console.log(list);
      chatten.scrollTop = chatten.scrollHeight;   
 });
+
     
    
     
@@ -102,5 +122,6 @@ function nameFunction() {
 	db.ref().child("messages").on("value", snap => chatDiv.innerHTML = JSON.stringify(snap.val()));
 
 };
+
 
 
