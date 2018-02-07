@@ -60,7 +60,7 @@ function nameFunction() {
         
         //loop through all the li´s and remove them
         let allTheLis = document.getElementsByTagName("li");
-        console.log(allTheLis);
+       // console.log(allTheLis);
         for (let x of allTheLis) {
             chatDiv.removeChild(x);
         }
