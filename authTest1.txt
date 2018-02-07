@@ -1,0 +1,51 @@
+  let provider = new firebase.auth.GithubAuthProvider();
+    let login = document.getElementById("login");
+    let logOut = document.getElementById("logOut")
+   // let link =  "https://github.com/login/oauth/authorize=client_id";
+    
+        login.addEventListener("click", function(popUp) {
+          
+        logOut.disabled = false;
+        login.disabled = true; 
+            firebase.auth().signInWithPopup(provider).then(function(result) {
+				//var user = result.user;
+                //var email = user.email;
+                
+				console.log('Popup result: logged in as ', email.displayName);
+				
+			}).catch(function(fail) {
+                console.log("fail")
+            })
+		});
+    
+        logOut.addEventListener("click", function(outlog) {
+            
+            logOut.disabled = true;
+            login.disabled = false; 
+                
+            firebase.auth().signOut().then(function(result) {
+				console.log('Signed out user');
+			})
+			.catch(function(error) {
+				console.log('Signout failed');
+			})
+        });
+    
+    firebase.auth().onAuthStateChanged(function(user) {
+	  if (user) {
+	    // User is signed in.
+	    var displayName = user.displayName;
+	    var email = user.email;
+	    var emailVerified = user.emailVerified;
+	    var photoURL = user.photoURL;
+	    var isAnonymous = user.isAnonymous;
+	    var uid = user.uid;
+	    var providerData = user.providerData;
+		console.log('onAuthStateChanged: user is signed in', user);
+	    // ...
+	  } else {
+	    // User is signed out.
+	    // ...
+		console.log('onAuthStateChanged: user is signed out');
+	  }
+	});  

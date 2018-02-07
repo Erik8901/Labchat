@@ -2,22 +2,43 @@ window.addEventListener("load", nameFunction)
 
 function nameFunction() {
         
-    let provider = new firebase.auth.GithubAuthProvider();
-    let btnGit = document.getElementById("login");
-   // let link =  "https://github.com/login/oauth/authorize=client_id";
+    let provider = new firebase.auth.GithubAuthProvider();   
+    let login = document.getElementById("login");
+    let logOut = document.getElementById("logOut")
+   
     
-        btnGit.addEventListener("click", function(popUp) {
+        login.addEventListener("click", function(popUp) {
+          
+        logOut.disabled = false;
+        login.disabled = true; 
             
-          firebase.auth().signInWithPopup(provider).then(function(result) {
-				var user = result.user;
-				console.log('Popup result: logged in as ', user.displayName);
-				fetchFromDatabase();
-			}).catch(function(error) {
-				console.log('Popup result, error: ' + error.message);
-			});
+              firebase.auth().signInWithPopup(provider).then(function(result) {
+				//var user = result.user;
+                //var email = user.email;
+                
+				console.log('Popup result: logged in as ');
+				
+			}).catch(function(fail) {
+                console.log("fail")
+            })
+		
+           
 		});
-            
-            
     
+        logOut.addEventListener("click", function(outlog) {
+            
+            logOut.disabled = true;
+            login.disabled = false; 
+                
+            
+        });         
+    firebase.auth().onAuthStateChanged(function(user) {
+        if(user) {
+            var displayName = user.displayName;
+            console.log(displayName);
+        } else {
+            console.log("onAuthStateChanged: user is signed out")
+        }
+    })
     
 }

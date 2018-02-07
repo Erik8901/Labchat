@@ -2,6 +2,14 @@ body {
     background-color: paleturquoise;   
 }
 
+#login {
+    margin-top: 30px;
+}
+
+#logOut {
+    margin-top: 30px;
+}
+
 #userName {
     margin-top:30px
 }
