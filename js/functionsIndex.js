@@ -34,7 +34,7 @@ function nameFunction() {
         };
         let currentHour = addZero(currentTime.getHours());
         let currentMinute = addZero(currentTime.getMinutes());
-
+       console.log(getUserName);
 	   //TODO: add 0 to minutes and hours under 10.
 	   db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName, "Message": mes.value});  
        //console.log(db.ref);
