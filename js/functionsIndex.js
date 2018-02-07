@@ -35,13 +35,7 @@ function nameFunction() {
 
 	   //get currentTime when message sends
 	   let currentTime = new Date();
-
-	   //TODO: add 0 to minutes and hours under 10.
-	   db.ref("messages/").push({"Time": currentTime.getHours() + ":" + currentTime.getMinutes(), "User": getUserName.value, "Message": mes.value});  
-       //console.log(db.ref);
-   });
-
-        let addZero = num => {
+       let addZero = num => {
             if (num < 10) {
                 return 0 + String(num);
             }  
@@ -49,10 +43,10 @@ function nameFunction() {
         let currentHour = addZero(currentTime.getHours());
         let currentMinute = addZero(currentTime.getMinutes());
 
-        //send message to database
-        db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName.value, "Message": mes.value});  
-        });
-
+	   //TODO: add 0 to minutes and hours under 10.
+	   db.ref("messages/").push({"Time": currentTime.getHours() + ":" + currentTime.getMinutes(), "User": getUserName.value, "Message": mes.value});  
+       //console.log(db.ref);
+   });
 
 	//realtime, when database changes it posts a new snapshot
 	db.ref().child("messages").on("value", snap => { 
@@ -82,45 +76,15 @@ function nameFunction() {
             li.innerHTML = (u +"[" + t + "]" + ":" + m);
             chatten.appendChild(li);
             //console.log(li);
-            
-            
-        
-        
         }
-        
-        
+            chatten.scrollTop = chatten.scrollHeight;
+            //li.innerHTML = (u +":" + t + ":" + m);
+            //list.innerHTML += li;
+            //console.log(li); 
+        });        
 
-            li.innerHTML = (u +":" + t + ":" + m);
-            list.innerHTML += li;
-            console.log(li); 
-        }        
-
-        //console.log(list);
-     chatten.scrollTop = chatten.scrollHeight;   
-});
-
-    
-   
-    
-    
-   
-   
-
-       let addZero = num => {
-         if (num < 10) {
-             return 0 + String(num);
-         }  
-       };
-	   let currentHour = addZero(currentTime.getHours());
-	   let currentMinute = addZero(currentTime.getMinutes());
-	   
-       //send message to database
-	   db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName.value, "Message": mes.value});  
-   
-
-	//realtime, when database changes it posts a new snapshot
-	db.ref().child("messages").on("value", snap => chatDiv.innerHTML = JSON.stringify(snap.val()));
-
+            //console.log(list);
+           
 };
 
 
