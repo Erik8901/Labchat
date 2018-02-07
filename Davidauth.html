@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<title>Firebase demo</title>
+	<meta charset="utf-8" />
+	<style>
+		body {
+			background-color: hotpink;
+		}
+	</style>
+
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyCnpTG9rigIzElQt-pkOz-9Uq-WkNTh7pQ",
+		authDomain: "demofeu17.firebaseapp.com",
+		databaseURL: "https://demofeu17.firebaseio.com",
+		projectId: "demofeu17",
+		storageBucket: "",
+		messagingSenderId: "725345092006"
+	};
+	firebase.initializeApp(config);
+	const newRecipe = {
+		namn: 'tacos',
+		portioner: 1,
+		ingrediens1: 'salladsmix',
+		ingrediens2: {
+			"mängd": '3 st',
+			"ämne": 'tacoskal'
+		},
+		ingrediens3: 'köttfärs'
+	}
+	const db = firebase.database();
+	// Lägga till objekt till db, används inte för tillfället
+	if( false ) {
+		console.log('Adding to database...');
+		db.ref('recept1/').push({ 'ämne': 'sylt', 'mängd': '3 msk' });
+		db.ref('/recept5').set(newRecipe);
+		console.log('Finished adding to database.');
+		// push - lägga till nytt objekt
+		// set - ändra befintliga
+	}
+	let provider = new firebase.auth.GithubAuthProvider();
+	provider.setCustomParameters({  // optional
+	  'allow_signup': 'true'
+	});
+	// Talar om ifall vi är inloggade eller inte
+	firebase.auth().onAuthStateChanged(function(user) {
+	  if (user) {
+	    // User is signed in.
+	    var displayName = user.displayName;
+	    var email = user.email;
+	    var emailVerified = user.emailVerified;
+	    var photoURL = user.photoURL;
+	    var isAnonymous = user.isAnonymous;
+	    var uid = user.uid;
+	    var providerData = user.providerData;
+		console.log('onAuthStateChanged: user is signed in', user);
+	    // ...
+	  } else {
+	    // User is signed out.
+	    // ...
+		console.log('onAuthStateChanged: user is signed out');
+	  }
+	});
+	firebase.auth().getRedirectResult().then(function(result) {
+		// Om vi har gjort en redirect tidigare,
+		// så är result.user !== null
+		if( result.user ) {
+			console.log('Redirect result, success: we have a user.');
+			console.log('You are logged in as ' + firebase.auth().currentUser.displayName);
+			fetchFromDatabase();
+		} else {
+			console.log('Redirect result, user is null.');
+		}
+	})
+	.catch(function(error) {
+		// Inträffar om vi inte kan få information om en
+		// eventuell tidigare redirect
+		console.log('Redirect result, error: ' + error.message);
+	})
+	window.addEventListener('load', function() {
+		// Klicka på knappen för att logga in med redirect
+		document.getElementById('redirectButton').addEventListener('click', function(e) {
+			firebase.auth().signInWithRedirect(provider);
+		});
+		document.getElementById('popupButton').addEventListener('click', function(e) {
+			firebase.auth().signInWithPopup(provider).then(function(result) {
+				var user = result.user;
+				console.log('Popup result: logged in as ', user.displayName);
+				fetchFromDatabase();
+			}).catch(function(error) {
+				console.log('Popup result, error: ' + error.message);
+			});
+		});
+		document.getElementById('signoutButton').addEventListener('click', function(event) {
+			firebase.auth().signOut().then(function(result) {
+				console.log('Signed out user');
+			})
+			.catch(function(error) {
+				console.log('Signout failed');
+			})
+		})
+	})  // window.load
+	// Gör DOM-manipulation, måste anropas inifrån webbläsarens load-händelse
+	function fetchFromDatabase() {
+		db.ref('/').on('value', function(snapshot) {
+			console.log('On value: hämtar hela databasen.');
+			let data = snapshot.val();
+			console.log(data);
+			let divRecept = document.getElementById('recept');
+			for( let recipe in data ) {
+				let r = data[recipe];
+				console.log(`Receptet ${r.namn} innehåller: `, data[recipe]);
+				const newDiv = document.createElement('div');
+				let str = JSON.stringify(r);
+				newDiv.innerHTML = `<strong>${r.namn}</strong><br/>
+				${str}</br/>`;
+				divRecept.appendChild(newDiv);
+			}
+		})
+	}
+	</script>
+</head>
+<body>
+	<h1>Firebase genomgång 1.0 </h1>
+	<div id="recept">
+
+	</div>
+	<button id="redirectButton">Redirect authentication</button>
+	<button id="popupButton">Popup authentication</button>
+	<button id="signoutButton">Sign out user</button>
+</body>
+</html>
+
+
+
+
+
+
+<!-- Här tar det slut -->

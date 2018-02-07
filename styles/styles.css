@@ -2,7 +2,12 @@ body {
     background-color: paleturquoise;   
 }
 
+#userName {
+    margin-top:30px
+}
+
 #box1 {
+    margin-top: 30px;
     width: 200px;
     height: 60px;
     background-color: green;
@@ -32,4 +37,8 @@ li {
     list-style-type: square;
     margin-left: 20px;
     color: green;
+}
+
+#login {
+    margin-top: 30px;
 }
