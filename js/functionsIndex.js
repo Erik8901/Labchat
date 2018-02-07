@@ -28,7 +28,7 @@ function nameFunction() {
 	});
 
 	btnRoom.addEventListener("click", function(EnterTheChat) {
-			chatten.style.display = "block";
+			chatDiv.style.display = "block";
 	});
 
    btnSend.addEventListener("click", function(SendToChat) {
@@ -38,13 +38,15 @@ function nameFunction() {
        let addZero = num => {
             if (num < 10) {
                 return 0 + String(num);
-            }  
+            } else {
+                return num;
+            }
         };
         let currentHour = addZero(currentTime.getHours());
         let currentMinute = addZero(currentTime.getMinutes());
 
 	   //TODO: add 0 to minutes and hours under 10.
-	   db.ref("messages/").push({"Time": currentTime.getHours() + ":" + currentTime.getMinutes(), "User": getUserName.value, "Message": mes.value});  
+	   db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName.value, "Message": mes.value});  
        //console.log(db.ref);
    });
 
@@ -55,6 +57,13 @@ function nameFunction() {
         //let list = document.getElementById("msgList");
         let list = document.createElement("ul");
         let li = document.createElement("li");
+        
+        //loop through all the li´s and remove them
+        let allTheLis = document.getElementsByTagName("li");
+        console.log(allTheLis);
+        for (let x of allTheLis) {
+            chatDiv.removeChild(x);
+        }
         
         for( let x in obj ) {
            // console.log('key: ' + x);         // 'key: a'
@@ -73,11 +82,11 @@ function nameFunction() {
             let li = document.createElement("li");
 
             
-            li.innerHTML = (u +"[" + t + "]" + ":" + m);
-            chatten.appendChild(li);
+            li.innerHTML = ("[" + t + "]" + u + ":" + m);
+            chatDiv.appendChild(li);
             //console.log(li);
         }
-            chatten.scrollTop = chatten.scrollHeight;
+            chatDiv.scrollTop = chatDiv.scrollHeight;
             //li.innerHTML = (u +":" + t + ":" + m);
             //list.innerHTML += li;
             //console.log(li); 
