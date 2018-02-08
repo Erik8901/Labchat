@@ -37,9 +37,9 @@ function nameFunction() {
             updateDisplayName(displayName);
             logOut.disabled = false;
             login.disabled = true; 
-            let h2 = document.createElement("h2");
-            h2.innerHTML = displayName;
-            signedInUser.appendChild(h2);
+            let h3 = document.createElement("h3");
+            h3.innerHTML = "Signed in as: " +displayName;
+            signedInUser.appendChild(h3);
 
             let img = document.createElement("img");
             img.setAttribute("src", photoURL);

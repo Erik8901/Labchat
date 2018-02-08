@@ -2,12 +2,57 @@ body {
     background-color: paleturquoise;   
 }
 
+h1 {
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 60px;
+}
+
+h3 {
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 20px;
+    margin-left: 30px;
+    
+}
+#signedInUser {
+    display: flex;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border: 3px solid green;
+    border-radius: 10px;
+    opacity: 1; 
+    margin-left: 760px;
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 20px;
+}
+
 #login {
     margin-top: 30px;
+    border: 3px solid green;
+    border-radius: 10px;
+    opacity: 1; 
+    margin-left: 800px;
+    background-color: white;
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #logOut {
     margin-top: 30px;
+    border: 3px solid green;
+    border-radius: 10px;
+    opacity: 1; 
+    margin-left: 60px;
+    background-color: white;
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #userName {
@@ -22,23 +67,61 @@ body {
 }
 
 #btnChatRoom {
+    height: 40px;
+    width: 200px;
     margin-top: 30px;
+    border: 3px solid green;
+    border-radius: 10px;
+    opacity: 1; 
+    margin-left: 860px;
+    background-color: white;
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    
 }
 
 #chatBox {
     display: none;
     margin-top: 30px;
-    width: 400px;
+    width: 700px;
     height: 300px;
     background-color: white;
     border: 3px solid green;
     border-radius: 10px;
     opacity: 1;
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 600px;
     
 }
 
+#div2 {
+    display: none;
+    margin-left: 700px;
+    font-family: 'Indie Flower', cursive;
+    color: green;
+    font-weight: bold;
+    
+}
+
+#msg {
+    font-family: 'Indie Flower', cursive;
+}
+
 #sendMsg {
-    margin-top: 30px;
+  display: none;
+  margin-left: 800px;
+  margin-top: 10px;
+  font-family: 'Indie Flower', cursive;
+  color: green;
+  font-weight: bold;
+  background-color: white;
+  border: 3px solid green;
+  border-radius: 10px;
 }
 
 li {
@@ -47,6 +130,3 @@ li {
     color: green;
 }
 
-#login {
-    margin-top: 30px;
-}

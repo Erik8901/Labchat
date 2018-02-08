@@ -16,14 +16,39 @@ function nameFunction() {
 	let btnRoom = document.getElementById("btnChatRoom")
 	let chatten = document.getElementById("theChat");
 	let btnSend = document.getElementById("sendMsg");
+    let div2 = document.getElementById("div2");
 	let mes = document.getElementById("msg");
 	let chatDiv = document.getElementById("chatBox");   
 	const db = firebase.database();
    // let list = document.getElementById("msgList");
 
 	btnRoom.addEventListener("click", function(EnterTheChat) {
-			chatDiv.style.display = "block";
+        
+         if(chatDiv.style.display === "none") {
+            chatDiv.style.display = "block";
+        } else {
+            chatDiv.style.display = "none";
+        }
 	});
+    
+    btnRoom.addEventListener("click", function(EnterTheChat) {
+			
+        if(div2.style.display === "none") {
+            div2.style.display = "block";
+        } else {
+            div2.style.display = "none";
+        }
+	});
+    
+     
+      btnRoom.addEventListener("click", function(EnterTheChat) {
+			
+        if(btnSend.style.display === "none") {
+            btnSend.style.display = "block";
+            } else {
+            btnSend.style.display = "none";
+     }
+    });
 
    btnSend.addEventListener("click", function(SendToChat) {
 
