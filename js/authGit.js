@@ -40,18 +40,19 @@ function nameFunction() {
         if (user != null) {
             updateDisplayName(displayName);
             logOut.disabled = false;
-            login.disabled = true; 
+            login.disabled = true;
+            //add h3 
             let h3 = document.createElement("h3");
             h3.innerHTML = "Signed in as: " +displayName;
             signedInUser.appendChild(h3);
-
+            //add img
             let img = document.createElement("img");
             img.setAttribute("src", photoURL);
             //img.style.width = "30px";
             signedInUser.appendChild(img);
 
             console.log("Login success!, displayName: " + displayName);
-            console.log("Find his sexy photo: " + photoURL);
+            console.log("Find photo: " + photoURL);
         } else {
             logOut.disabled = true;
             login.disabled = false; 

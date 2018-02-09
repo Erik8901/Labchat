@@ -28,8 +28,6 @@ main {
 }
 
 #signedInUser {
-    display: flex;
-    justify-content: center;
     height: 50px;
     opacity: 1; 
     margin: auto;
@@ -39,9 +37,14 @@ main {
 }
 
 #signedInUser > img {
+    display: inline;
     margin-left: 10px;
     width: 40px;
     height: 40px;
+}
+
+#signedInUser > h3 {
+    display: inline;
 }
 
 #login {

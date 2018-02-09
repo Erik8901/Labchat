@@ -60,9 +60,9 @@ function nameFunction() {
         };
        
     
-        let currentMonth = addZero(currentMonth.getMonth());
-        let currentDate = addZero(currentDate.getDate());
-        let currentYear = addZero(currentYear.getFullYear());
+        let currentMonth = addZero(currentTime.getMonth()+1);
+        let currentDate = addZero(currentTime.getDate());
+        let currentYear = currentTime.getFullYear();
         let currentHour = addZero(currentTime.getHours());
         let currentMinute = addZero(currentTime.getMinutes());
 	   //TODO: add 0 to minutes and hours under 10.
@@ -92,9 +92,7 @@ function nameFunction() {
            // console.log('time: ' + obj[x].Time);  // 'value: exempel'
             //console.log('user: ' + obj[x].User);
             //console.log('message: ' + obj[x].Message);
-            let year = obj[x].Year;
             let date = obj[x].Date;
-            let month = obj[x].Month;
             let u = obj[x].User;
             let t = obj[x].Time;
             let m = obj[x].Message;
@@ -104,7 +102,7 @@ function nameFunction() {
             let li = document.createElement("li");
 
             
-            li.innerHTML = ("[" + year + ":" + month + ":" + date + "]" + "[" + t + "]" + u + ":" + m);
+            li.innerHTML = (date + "[" + t + "]" + u + ":" + m);
             chatDiv.appendChild(li);
             //console.log(li);
         }
