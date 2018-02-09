@@ -12,8 +12,6 @@ h3 {
     font-family: 'Indie Flower', cursive;
     text-align: center;
     font-size: 20px;
-/*    margin-left: 30px;*/
-    
 }
 
 #wrapper {
@@ -108,7 +106,6 @@ main {
     border-radius: 10px;
     opacity: 1;
     font-family: 'Indie Flower', cursive;
-/*    text-align: center;*/
     font-size: 20px;
     font-weight: bold;
 }
@@ -129,7 +126,6 @@ main {
 
 #sendMsg {
   display: none;
-/*  margin-left: 800px;*/
   margin-top: 10px;
   font-family: 'Indie Flower', cursive;
   color: green;

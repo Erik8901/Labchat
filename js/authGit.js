@@ -1,6 +1,5 @@
 window.addEventListener("load", nameFunction)
 
-
 function nameFunction() {
         
     let provider = new firebase.auth.GithubAuthProvider();   
@@ -48,7 +47,6 @@ function nameFunction() {
             //add img
             let img = document.createElement("img");
             img.setAttribute("src", photoURL);
-            //img.style.width = "30px";
             signedInUser.appendChild(img);
 
             console.log("Login success!, displayName: " + displayName);
