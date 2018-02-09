@@ -108,7 +108,7 @@ function nameFunction() {
             let li = document.createElement("li");
 
             
-            li.innerHTML = ("[" + year + ":" + month + ":" + date + "]"[" + t + "]" + u + ":" + m);
+            li.innerHTML = ("[" + year + ":" + month + ":" + date + "]" + "[" + t + "]" + u + ":" + m);
             chatDiv.appendChild(li);
             //console.log(li);
         }
