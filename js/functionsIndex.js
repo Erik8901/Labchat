@@ -20,6 +20,7 @@ function nameFunction() {
 	let mes = document.getElementById("msg");
 	let chatDiv = document.getElementById("chatBox");   
 	const db = firebase.database();
+    let signedInDiv = document.getElementById("signedInUser");
    // let list = document.getElementById("msgList");
 
 	btnRoom.addEventListener("click", function(EnterTheChat) {

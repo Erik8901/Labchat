@@ -9,9 +9,12 @@ function nameFunction() {
     let signedInUser = document.getElementById("signedInUser");
     let photoURL;
     let displayName;
+    let signedInDiv = document.getElementById("signedInUser");
     
-    login.addEventListener("click", function(popUp) {         
+    login.addEventListener("click", function(popUp) {  
+        signedInDiv.style.display = "block";
         firebase.auth().signInWithPopup(provider).then(function(result) {
+            
             var user = result.user;
             displayName = user.displayName;
             photoURL = user.photoURL;
@@ -23,6 +26,7 @@ function nameFunction() {
     });
 
     logOut.addEventListener("click", function(outlog) {
+        signedInDiv.style.display = "none;
         firebase.auth().signOut().then(function (result) {
             console.log("Signout success!");
             signedInUser.removeChild(document.getElementsByTagName("h2")[0])
