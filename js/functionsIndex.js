@@ -28,31 +28,24 @@ function nameFunction() {
 
 	btnRoom.addEventListener("click", function(EnterTheChat) {
         
-         if(chatDiv.style.display === "none") {
+        if(chatDiv.style.display === "none") {
             chatDiv.style.display = "block";
         } else {
             chatDiv.style.display = "none";
         }
-	});
-    
-    btnRoom.addEventListener("click", function(EnterTheChat) {
-			
+        
         if(div2.style.display === "none") {
             div2.style.display = "block";
         } else {
             div2.style.display = "none";
         }
-	});
-    
-     
-      btnRoom.addEventListener("click", function(EnterTheChat) {
-			
+        
         if(btnSend.style.display === "none") {
-            btnSend.style.display = "block";
-            } else {
+            btnSend.style.display = "inline-block";
+        } else {
             btnSend.style.display = "none";
-     }
-    });
+        }
+	});
 
    btnSend.addEventListener("click", function(SendToChat) {
 

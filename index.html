@@ -24,21 +24,23 @@
 </head>
 <body>
     <h1>Github Chat Board</h1>
-    <div id="signedInUser"></div>
-    <button id="login" type="button">Login with GitHub</button>
-    <button id="logOut" type="button">logout</button>
-   <!-- <div id="box1"><p id="text1"></p>
-        <p id="text2"></p>
-    </div>-->
-    
-   	<!-- <form action="http://127.0.0.1:59103/Firebase/chatLab/chatroom.HTML">-->
-    </br><button id="btnChatRoom">Enter Chatroom!</button>
-    
-    <div style="overflow-y: scroll;"type="text" id="chatBox">
-        <ul id="theChat">
-        </ul>
+    <div id="wrapper">
+        <div id="signedInUser"></div>
+        <main>
+            <button id="login" type="button">Login with GitHub</button>
+            <button id="logOut" type="button">Logout</button>
+            <button id="btnChatRoom">Enter Chatroom!</button>
+        </main>
+        <div style="overflow-y: scroll;"type="text" id="chatBox">
+            <ul id="theChat">
+            </ul>
+        </div>
+        <br/>
+        <div id="div2">
+            <label>Enter Message:<input id="msg" type="text"></label>
+            <button id="sendMsg" type="button">Send Message</button>
+        </div>
+
     </div>
-    <br/><div id="div2"><label>Enter Message:<input id="msg" type="text"></label></div>
-    <button id="sendMsg" type="button">Send Message</button>    
 </body> 
 </html>
