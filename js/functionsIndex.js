@@ -66,11 +66,14 @@ function nameFunction() {
             }
         };
        
-        
+    
+        let currentMonth = addZero(currentMonth.getMonth());
+        let currentDate = addZero(currentDate.getDate());
+        let currentYear = addZero(currentYear.getFullYear());
         let currentHour = addZero(currentTime.getHours());
         let currentMinute = addZero(currentTime.getMinutes());
 	   //TODO: add 0 to minutes and hours under 10.
-	   db.ref("messages/").push({"Time": currentHour + ":" + currentMinute, "User": getUserName, "Message": mes.value});  
+	   db.ref("messages/").push({"Date": currentYear + ":" + currentMonth + ":"+ currentDate, "Time": currentHour + ":" + currentMinute, "User": getUserName, "Message": mes.value});  
        //console.log(db.ref);
    });
 
