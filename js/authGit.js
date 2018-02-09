@@ -47,7 +47,7 @@ function nameFunction() {
 
             let img = document.createElement("img");
             img.setAttribute("src", photoURL);
-            img.style.width = "30px";
+            //img.style.width = "30px";
             signedInUser.appendChild(img);
 
             console.log("Login success!, displayName: " + displayName);
