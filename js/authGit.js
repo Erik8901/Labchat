@@ -26,7 +26,7 @@ function nameFunction() {
     });
 
     logOut.addEventListener("click", function(outlog) {
-        signedInDiv.style.display = "none;
+        signedInDiv.style.display = "none";
         firebase.auth().signOut().then(function (result) {
             console.log("Signout success!");
             signedInUser.removeChild(document.getElementsByTagName("h2")[0])

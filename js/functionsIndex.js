@@ -12,6 +12,9 @@ function nameFunction() {
 	let datum = new Date();
 	let h = datum.getHours();
 	let m = datum.getMinutes();   
+    let year = datum.getFullYear();
+    let date = datum.getDate();
+    let month = datum.getMonth();
 	let div1 = document.getElementById("boxUserName");
 	let btnRoom = document.getElementById("btnChatRoom")
 	let chatten = document.getElementById("theChat");
@@ -62,6 +65,8 @@ function nameFunction() {
                 return num;
             }
         };
+       
+        
         let currentHour = addZero(currentTime.getHours());
         let currentMinute = addZero(currentTime.getMinutes());
 	   //TODO: add 0 to minutes and hours under 10.
@@ -91,7 +96,9 @@ function nameFunction() {
            // console.log('time: ' + obj[x].Time);  // 'value: exempel'
             //console.log('user: ' + obj[x].User);
             //console.log('message: ' + obj[x].Message);
-        
+            let year = obj[x].Year;
+            let date = obj[x].Date;
+            let month = obj[x].Month;
             let u = obj[x].User;
             let t = obj[x].Time;
             let m = obj[x].Message;
@@ -101,7 +108,7 @@ function nameFunction() {
             let li = document.createElement("li");
 
             
-            li.innerHTML = ("[" + t + "]" + u + ":" + m);
+            li.innerHTML = ("[" + year + ":" + month + ":" + date + "]"[" + t + "]" + u + ":" + m);
             chatDiv.appendChild(li);
             //console.log(li);
         }
