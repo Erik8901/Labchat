@@ -31,9 +31,6 @@ main {
     display: flex;
     justify-content: center;
     height: 50px;
-/*    background-color: white;*/
-/*    border: 3px solid green;*/
-/*    border-radius: 10px;*/
     opacity: 1; 
     margin: auto;
     font-family: 'Indie Flower', cursive;
