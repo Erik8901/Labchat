@@ -1,5 +1,10 @@
  window.addEventListener("load", nameFunction )
-
+   
+    var getUserName
+            function updateDisplayName(setName) {
+            getUserName = setName;
+            console.log("nu uppdateas displayName")
+        }
 
 function nameFunction() { 
 	let theUsers = document.getElementById("text1");
