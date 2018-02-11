@@ -14,6 +14,7 @@ function nameFunction() {
     let btnRoom = document.getElementById("btnChatRoom")
     let div2 = document.getElementById("div2");
     let chatten = document.getElementById("theChat");
+    let btnSend = document.getElementById("sendMsg");
     
     login.addEventListener("click", function(popUp) {  
         
@@ -32,7 +33,7 @@ function nameFunction() {
         chatDiv.style.display = "block";
         chatten.style.display = "block";
         div2.style.display = "block";
-        
+        btnSend.style.display = "block"
     
     });
     
@@ -50,6 +51,11 @@ function nameFunction() {
         }).catch(function (err){
             console.log("Signout failed");
         })
+            chatDiv.style.display = "none";
+            chatten.style.display = "none;
+            div2.style.display = "none";
+            btnSend.style.display = "none"
+        
     });   
 
     firebase.auth().onAuthStateChanged(function(user) {
