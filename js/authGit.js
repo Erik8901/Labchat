@@ -1,6 +1,12 @@
 window.addEventListener("load", nameFunction)
 
 function nameFunction() {
+    
+    var getUserName
+function updateDisplayName(setName) {
+        getUserName = setName;
+        console.log("nu uppdateas displayName")
+    } 
         
     let provider = new firebase.auth.GithubAuthProvider();   
     let login = document.getElementById("login");
