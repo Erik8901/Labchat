@@ -18,6 +18,12 @@ function nameFunction() {
     
     login.addEventListener("click", function(popUp) {  
         
+        var getUserName
+            function updateDisplayName(setName) {
+            getUserName = setName;
+            console.log("nu uppdateas displayName")
+        } 
+        
         signedInDiv.style.display = "block";
         firebase.auth().signInWithPopup(provider).then(function(result) {
             

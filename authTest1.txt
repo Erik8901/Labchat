@@ -49,3 +49,12 @@
 		console.log('onAuthStateChanged: user is signed out');
 	  }
 	});  
+
+
+
+
+var getUserName
+function updateDisplayName(setName) {
+        getUserName = setName;
+        console.log("nu uppdateas displayName")
+    } 
