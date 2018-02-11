@@ -25,26 +25,7 @@ function nameFunction() {
 	const db = firebase.database();
     let signedInDiv = document.getElementById("signedInUser");
 
-	btnRoom.addEventListener("click", function(EnterTheChat) {
-        
-        if(chatDiv.style.display === "none") {
-            chatDiv.style.display = "block";
-        } else {
-            chatDiv.style.display = "none";
-        }
-        
-        if(div2.style.display === "none") {
-            div2.style.display = "block";
-        } else {
-            div2.style.display = "none";
-        }
-        
-        if(btnSend.style.display === "none") {
-            btnSend.style.display = "inline-block";
-        } else {
-            btnSend.style.display = "none";
-        }
-	});
+	btnSend.disabled = true;
 
    btnSend.addEventListener("click", function(SendToChat) {
 

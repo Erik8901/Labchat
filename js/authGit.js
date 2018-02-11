@@ -9,8 +9,10 @@ function nameFunction() {
     let photoURL;
     let displayName;
     let signedInDiv = document.getElementById("signedInUser");
+    let btnSend = document.getElementById("sendMsg");
     
     login.addEventListener("click", function(popUp) {  
+        btnSend.disabled = false;
         signedInDiv.style.display = "block";
         firebase.auth().signInWithPopup(provider).then(function(result) {
             
@@ -22,7 +24,14 @@ function nameFunction() {
         }).catch(function(fail) {
             console.log("fail")
         })
+    
+    
+    
+    
     });
+    
+    
+    
 
     logOut.addEventListener("click", function(outlog) {
         signedInDiv.style.display = "none";
