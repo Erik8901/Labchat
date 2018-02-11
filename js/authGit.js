@@ -11,8 +11,10 @@ function nameFunction() {
     let signedInDiv = document.getElementById("signedInUser");
     let btnSend = document.getElementById("sendMsg");
     
+    btnSend.disabled = false;
+    
     login.addEventListener("click", function(popUp) {  
-        btnSend.disabled = false;
+        
         signedInDiv.style.display = "block";
         firebase.auth().signInWithPopup(provider).then(function(result) {
             
