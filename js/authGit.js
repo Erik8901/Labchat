@@ -14,7 +14,7 @@ function nameFunction() {
     let btnRoom = document.getElementById("btnChatRoom")
     let div2 = document.getElementById("div2");
     let chatten = document.getElementById("theChat");
-    let btnSend = document.getElementById("sendMsg");
+    
     
     login.addEventListener("click", function(popUp) {  
         
