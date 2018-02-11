@@ -19,7 +19,7 @@ function nameFunction() {
     
     
     login.addEventListener("click", function(popUp) {  
-        
+         updateDisplayName(setName)
         
         
         signedInDiv.style.display = "block";
