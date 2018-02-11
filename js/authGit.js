@@ -33,7 +33,7 @@ function nameFunction() {
         chatDiv.style.display = "block";
         chatten.style.display = "block";
         div2.style.display = "block";
-        btnSend.style.display = "block"
+        btnSend.style.display = "block";
     
     });
     
@@ -52,9 +52,9 @@ function nameFunction() {
             console.log("Signout failed");
         })
             chatDiv.style.display = "none";
-            chatten.style.display = "none;
+            chatten.style.display = "none";
             div2.style.display = "none";
-            btnSend.style.display = "none"
+            btnSend.style.display = "none";
         
     });   
 
