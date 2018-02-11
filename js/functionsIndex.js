@@ -4,8 +4,13 @@
 
 function nameFunction() { 
     
-    
-	let theUsers = document.getElementById("text1");
+    var getUserName
+        function updateDisplayName(setName) {
+        getUserName = setName;
+        console.log("nu uppdateas displayName")
+    } 
+	
+    let theUsers = document.getElementById("text1");
 	let theTime = document.getElementById("text2");
 	let userList = [];
 	let datum = new Date();
