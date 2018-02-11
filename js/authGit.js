@@ -10,8 +10,10 @@ function nameFunction() {
     let displayName;
     let signedInDiv = document.getElementById("signedInUser");
     let btnSend = document.getElementById("sendMsg");
-    
-    btnSend.disabled = false;
+    let chatDiv = document.getElementById("chatBox"); 
+    let btnRoom = document.getElementById("btnChatRoom")
+    let div2 = document.getElementById("div2");
+    let chatten = document.getElementById("theChat");
     
     login.addEventListener("click", function(popUp) {  
         
@@ -26,11 +28,15 @@ function nameFunction() {
         }).catch(function(fail) {
             console.log("fail")
         })
-    
-    
-    
+        
+        chatDiv.style.display = "block";
+        chatten.style.display = "block";
+        div2.style.display = "block";
+        
     
     });
+    
+  
     
     
     

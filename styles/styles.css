@@ -83,6 +83,7 @@ main {
 }
 
 #btnChatRoom {
+    display: none;
     height: 40px;
     width: 200px;
     margin-top: 30px;

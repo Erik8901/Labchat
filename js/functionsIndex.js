@@ -25,7 +25,7 @@ function nameFunction() {
 	const db = firebase.database();
     let signedInDiv = document.getElementById("signedInUser");
 
-	btnSend.disabled = true;
+	
 
    btnSend.addEventListener("click", function(SendToChat) {
 
