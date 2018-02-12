@@ -29,9 +29,9 @@ function nameFunction() {
     
    btnSend.addEventListener("click", function(SendToChat) {
 
-	   //get currentTime when message sends
-	   let currentTime = new Date();
-       let addZero = num => {
+        //get currentTime when message sends
+        let currentTime = new Date();
+        let addZero = num => {
             if (num < 10) {
                 return 0 + String(num);
             } else {
@@ -43,9 +43,12 @@ function nameFunction() {
         let currentYear = currentTime.getFullYear();
         let currentHour = addZero(currentTime.getHours());
         let currentMinute = addZero(currentTime.getMinutes());
-       
+
         //push to database
-        db.ref("messages/").push({"Date": currentYear + ":" + currentMonth + ":"+ currentDate, "Time": currentHour + ":" + currentMinute, "User": getUserName, "Message": mes.value});  
+        db.ref("messages/").push({"Date": currentYear + ":" + currentMonth + ":"+ currentDate, "Time": currentHour + ":" + currentMinute, "User": getUserName, "Message": mes.value});
+        
+        //empty message field
+        mes.value = "";
    });
 
 	//realtime, when database changes it posts a new snapshot
