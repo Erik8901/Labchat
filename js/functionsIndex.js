@@ -1,15 +1,13 @@
- window.addEventListener("load", nameFunction )
-   
-   var getUserName
+window.addEventListener("load", nameFunction )
+
+//getting userName from authGit.js
+var getUserName;
 function updateDisplayName(setName) {
         getUserName = setName;
-        console.log("nu uppdateas displayName")
+        console.log("Updating displayName")
     } 
 
 function nameFunction() { 
-    
-    
-	
     let theUsers = document.getElementById("text1");
 	let theTime = document.getElementById("text2");
 	let userList = [];
@@ -28,9 +26,7 @@ function nameFunction() {
 	let chatDiv = document.getElementById("chatBox");   
 	const db = firebase.database();
     let signedInDiv = document.getElementById("signedInUser");
-
-	
-
+    
    btnSend.addEventListener("click", function(SendToChat) {
 
 	   //get currentTime when message sends
@@ -60,9 +56,10 @@ function nameFunction() {
         
         //loop through all the li´s and remove them
         let allTheLis = document.getElementsByTagName("li");
-        for (let x of allTheLis) {
-            chatDiv.removeChild(x);
-        }
+        for (let i; i < allTheLis.length; i++) {
+            chatDiv.removeChild(i);
+        };
+        
         //loop through the database, create li´s and add them to chatDiv
         for( let x in obj ) {
             let date = obj[x].Date;
@@ -72,8 +69,9 @@ function nameFunction() {
             let li = document.createElement("li");
             li.innerHTML = (date + "[" + t + "]" + u + ":" + m);
             chatDiv.appendChild(li);
-        }
-            chatDiv.scrollTop = chatDiv.scrollHeight;
+        };
+        //scroll to bottom of chatDiv
+        chatDiv.scrollTop = chatDiv.scrollHeight;
     });        
 };
 
